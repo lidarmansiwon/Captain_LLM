@@ -1,0 +1,22 @@
+schedule:
+  - offset_min: 1
+    order_id: 3
+    detail: "propulsor test"
+  - offset_min: 2
+    order_id: 4
+    detail: "navigation data check"
+  - offset_min: 3
+    order_id: 99   # 점검 결과 확인 (부 Captain 통해 Server 응답 받아 Captain이 해석)
+    detail: "inspection result"
+  - offset_min: 4
+    order_id: -1   # 대기
+    detail: "waiting until departure"
+  - offset_min: 5
+    order_id: 5
+    detail: "departure"
+
+waypoints:
+  - [35.1234, 129.1234]   # (lat, lon)
+  - [35.1250, 129.1250]
+  - [35.1260, 129.1270]
+  - [35.1300, 129.1300]

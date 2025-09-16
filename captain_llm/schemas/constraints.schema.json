@@ -1,0 +1,22 @@
+{
+"$schema": "http://json-schema.org/draft-07/schema#",
+"$id": "https://example.org/schemas/constraints.schema.json",
+"title": "Constraints",
+"type": "object",
+"required": ["rules", "limits"],
+"properties": {
+"rules": {"type": "array", "items": {"type": "string"}},
+"limits": {
+"type": "object",
+"required": ["DCPA_min_m", "TCPA_min_s", "speed_max_mps"],
+"properties": {
+"DCPA_min_m": {"type": "number", "minimum": 0},
+"TCPA_min_s": {"type": "number", "minimum": 0},
+"speed_max_mps": {"type": "number", "minimum": 0}
+}
+},
+"harbor_sop": {"type": "array", "items": {"type": "string"}},
+"vts": {"type": "object", "properties": {"status": {"type": "string"}, "msg": {"type": "string"}}}
+},
+"additionalProperties": false
+}

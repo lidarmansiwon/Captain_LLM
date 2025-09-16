@@ -1,0 +1,3 @@
+float32 wind_mps
+float32 current_mps
+float32 current_dir_deg

@@ -1,0 +1,3 @@
+float32 dcpa_min_m
+float32 tcpa_min_s
+float32 speed_max_mps

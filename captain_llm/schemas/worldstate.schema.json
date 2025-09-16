@@ -1,0 +1,50 @@
+{
+"$schema": "http://json-schema.org/draft-07/schema#",
+"$id": "https://example.org/schemas/worldstate.schema.json",
+"title": "WorldState",
+"type": "object",
+"required": ["timestamp", "ego"],
+"properties": {
+"timestamp": {"type": "string"},
+"ego": {
+"type": "object",
+"required": ["id", "pose", "vel", "health"],
+"properties": {
+"id": {"type": "string"},
+"pose": {"type": "object", "required": ["x", "y", "yaw_deg"],
+"properties": {"x": {"type": "number"}, "y": {"type": "number"}, "yaw_deg": {"type": "number"}}},
+"vel": {"type": "object", "required": ["u"],
+"properties": {"u": {"type": "number"}, "v": {"type": "number"}, "r": {"type": "number"}}},
+"health": {"type": "object", "required": ["propulsion", "battery_soc", "comm"],
+"properties": {"propulsion": {"type": "string"}, "battery_soc": {"type": "number"}, "comm": {"type": "string"}}}
+},
+"additionalProperties": false
+},
+"targets": {"type": "array", "items": {
+"type": "object",
+"required": ["id", "type", "pose"],
+"properties": {
+"id": {"type": "string"},
+"type": {"type": "string"},
+"pose": {"type": "object", "required": ["x", "y", "yaw_deg"],
+"properties": {"x": {"type": "number"}, "y": {"type": "number"}, "yaw_deg": {"type": "number"}}},
+"vel": {"type": "object", "properties": {"u": {"type": "number"}, "v": {"type": "number"}, "r": {"type": "number"}}},
+"intent": {"type": "string"}
+},
+"additionalProperties": false
+}},
+"hazards": {"type": "array", "items": {
+"type": "object",
+"required": ["id", "type"],
+"properties": {
+"id": {"type": "string"},
+"type": {"type": "string", "enum": ["buoy", "vessel", "polygon", "rock", "shoal", "unknown"]},
+"pose": {"type": "object", "properties": {"x": {"type": "number"}, "y": {"type": "number"}}},
+"poly": {"type": "array", "items": {"type": "array", "items": [{"type": "number"}, {"type": "number"}], "minItems": 2, "maxItems": 2}}
+},
+"additionalProperties": false
+}},
+"env": {"type": "object", "properties": {"wind_mps": {"type": "number"}, "current_mps": {"type": "number"}, "current_dir_deg": {"type": "number"}}}
+},
+"additionalProperties": false
+}

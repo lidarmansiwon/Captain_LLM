@@ -1,0 +1,37 @@
+{
+"$schema": "http://json-schema.org/draft-07/schema#",
+"$id": "https://example.org/schemas/plan.schema.json",
+"title": "HighLevelPlan",
+"type": "object",
+"required": ["plan_id", "waypoints", "actions", "rationale", "safety_checks", "fallback"],
+"properties": {
+"plan_id": {"type": "string"},
+"waypoints": {
+"type": "array",
+"minItems": 1,
+"items": {
+"type": "array",
+"items": [{"type": "number"}, {"type": "number"}],
+"minItems": 2,
+"maxItems": 2
+}
+},
+"actions": {
+"type": "array",
+"items": {
+"type": "object",
+"required": ["cmd"],
+"properties": {
+"cmd": {"type": "string", "enum": ["set_speed", "hold_if", "announce", "switch_mode"]},
+"value_mps": {"type": "number"},
+"condition": {"type": "string"}
+},
+"additionalProperties": false
+}
+},
+"rationale": {"type": "string"},
+"safety_checks": {"type": "array", "items": {"type": "string"}},
+"fallback": {"type": "string"}
+},
+"additionalProperties": false
+}

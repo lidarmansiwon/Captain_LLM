@@ -13,6 +13,7 @@
   <depend>builtin_interfaces</depend>
   <depend>std_msgs</depend>
   <depend>sensor_msgs</depend>
+  <build_depend>geometry_msgs</build_depend>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
 
